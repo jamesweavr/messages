@@ -126,7 +126,7 @@ def main():
 			for key, value in dic.items():
 				f.write(key + "," + str(value) + "," + str(dic2.get(key)) + "\n")
 
-		if not set(dick.keys()) == set(vag.keys()):
+		if not set(dic.keys()) == set(dic2.keys()):
 			print("NO")
 
 					
