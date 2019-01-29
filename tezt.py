@@ -63,8 +63,8 @@ def main():
 		cupl = []
 		word = []
 		# Dictonary for each occurance of each date per person
-		dick = dict((el, 0) for el in dates)
-		vag = dict((el, 0) for el in dates)
+		dic = dict((el, 0) for el in dates)
+		dic2 = dict((el, 0) for el in dates)
 		textCounts = dict()
 
 		# Split on '--'
@@ -105,9 +105,9 @@ def main():
 		# as the key for the corresponding persons dictionary
 		for x in cupl:
 			if x[1] == "James":
-				dick[x[0]] = dick.get(x[0], 0) + 1
+				dic[x[0]] = dic.get(x[0], 0) + 1
 			else:
-				vag[x[0]] = vag.get(x[0], 0) + 1
+				dic2[x[0]] = dic2.get(x[0], 0) + 1
 
 		# Write the computed values into csvs for each person and as a whole
 		with open('text.csv', 'a') as f:
@@ -115,19 +115,19 @@ def main():
 				f.write(key + "," + str(value) + "\n")
 
 		with open('james.csv', 'a') as f:
-			for key, value in dick.items():
+			for key, value in dic.items():
 				f.write(key + "," + str(value) + "\n")
 
 		with open('jessika.csv', 'a') as f: 
-			for key, value in vag.items():
+			for key, value in dic2.items():
 				f.write(key + "," + str(value) + "\n")
 	
 		with open('errbody.csv', 'a') as f: 
-			for key, value in dick.items():
-				f.write(key + "," + str(value) + "," + str(vag.get(key)) + "\n")
+			for key, value in dic.items():
+				f.write(key + "," + str(value) + "," + str(dic2.get(key)) + "\n")
 
 		if not set(dick.keys()) == set(vag.keys()):
-			print("NOOOOOOOOOOO")
+			print("NO")
 
 					
 
